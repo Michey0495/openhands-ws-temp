@@ -1,9 +1,7 @@
 #!/bin/bash
-# Exit immediately if a command exits with a non-zero status.
 set -e
 
 echo "===== [1/3] Installing Poetry... ====="
-# This installs Poetry into /home/vscode/.local/bin, which devcontainer.json now adds to the PATH.
 curl -sSL https://install.python-poetry.org | python3 -
 echo "===== Poetry installed successfully. ====="
 
@@ -18,8 +16,6 @@ echo "===== OpenHands project setup complete. ====="
 
 
 echo "===== [3/3] Pre-installing project dependencies... ====="
-# We must use the absolute path to the poetry executable here because the PATH
-# change from devcontainer.json only applies *after* this script finishes.
 /home/vscode/.local/bin/poetry install --no-root
 echo "===== Dependencies installed successfully. ====="
 
