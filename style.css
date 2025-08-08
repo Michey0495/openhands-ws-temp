@@ -1,0 +1,13 @@
+body {
+    font-family: sans-serif;
+    background-color: #f0f0f0; /* 初期背景色 */
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    /* 色が間違っている */
+    background-color: red; 
+    color: white;
+    border: none;
+    cursor: pointer;
+}
