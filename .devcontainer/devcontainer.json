@@ -2,7 +2,9 @@
     "name": "OpenHands Workshop Environment",
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        // ▼▼▼ このPythonの行を追加 ▼▼▼
+        "ghcr.io/devcontainers/features/python:1": {}
     },
     "postCreateCommand": "bash ./.devcontainer/post-create.sh",
     "forwardPorts": [3001, 8080],
@@ -19,7 +21,8 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "ms-azuretools.vscode-docker"
+                "ms-azuretools.vscode-docker",
+                "ms-python.python"
             ]
         }
     }
