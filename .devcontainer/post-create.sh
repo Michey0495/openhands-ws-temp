@@ -1,11 +1,10 @@
 #!/bin/bash
-
-set -e # エラーが発生したらスクリプトを停止する設定
+# Exit immediately if a command exits with a non-zero status.
+set -e
 
 echo "===== [1/3] Installing Poetry... ====="
+# This installs Poetry into /home/vscode/.local/bin, which devcontainer.json now adds to the PATH.
 curl -sSL https://install.python-poetry.org | python3 -
-# スクリプト内でPoetryコマンドを即時利用可能にする
-export PATH="/home/vscode/.local/bin:$PATH"
 echo "===== Poetry installed successfully. ====="
 
 
@@ -19,8 +18,9 @@ echo "===== OpenHands project setup complete. ====="
 
 
 echo "===== [3/3] Pre-installing project dependencies... ====="
-# この処理で、研修当日のビルド時間を大幅に短縮します
-poetry install --no-root
+# We must use the absolute path to the poetry executable here because the PATH
+# change from devcontainer.json only applies *after* this script finishes.
+/home/vscode/.local/bin/poetry install --no-root
 echo "===== Dependencies installed successfully. ====="
 
 
