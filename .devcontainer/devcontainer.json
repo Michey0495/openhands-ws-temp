@@ -6,6 +6,10 @@
         "ghcr.io/devcontainers/features/python:1": {},
         "ghcr.io/devcontainers/features/node:1": {}
     },
+    // ▼▼▼ このブロックを追加して、PoetryのPATHを恒久的に設定 ▼▼▼
+    "remoteEnv": {
+        "PATH": "${containerEnv:PATH}:/home/vscode/.local/bin"
+    },
     "postCreateCommand": "bash ./.devcontainer/post-create.sh",
     "forwardPorts": [3001, 8080],
     "portsAttributes": {
