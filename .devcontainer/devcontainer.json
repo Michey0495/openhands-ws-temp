@@ -3,8 +3,8 @@
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-        // ▼▼▼ このPythonの行を追加 ▼▼▼
-        "ghcr.io/devcontainers/features/python:1": {}
+        "ghcr.io/devcontainers/features/python:1": {},
+        "ghcr.io/devcontainers/features/node:1": {}
     },
     "postCreateCommand": "bash ./.devcontainer/post-create.sh",
     "forwardPorts": [3001, 8080],
@@ -22,7 +22,8 @@
         "vscode": {
             "extensions": [
                 "ms-azuretools.vscode-docker",
-                "ms-python.python"
+                "ms-python.python",
+                "dbaeumer.vscode-eslint"
             ]
         }
     }
