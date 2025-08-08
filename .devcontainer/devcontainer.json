@@ -6,8 +6,6 @@
         "ghcr.io/devcontainers/features/python:1": {},
         "ghcr.io/devcontainers/features/node:1": {}
     },
-    // ▼▼▼ This block is the definitive fix. ▼▼▼
-    // It permanently adds Poetry's directory to the system's PATH.
     "remoteEnv": {
         "PATH": "${containerEnv:PATH}:/home/vscode/.local/bin"
     },
