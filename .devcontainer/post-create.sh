@@ -1,29 +1,29 @@
 #!/bin/bash
 set -e # エラーが発生したらスクリプトを停止する設定
 
-echo "===== [1/3] Installing Poetry... ====="
+echo "===== [1/4] Installing Poetry... ====="
 curl -sSL https://install.python-poetry.org | python3 -
-# スクリプト内でPoetryコマンドを即時利用可能にする
 export PATH="/home/vscode/.local/bin:$PATH"
 echo "===== Poetry installed successfully. ====="
 
 
-echo "===== [2/3] Setting up OpenHands project... ====="
+# ▼▼▼ このブロックを追加して、'shell'コマンドを有効化 ▼▼▼
+echo "===== [2/4] Activating 'shell' command for Poetry... ====="
+poetry self add poetry-plugin-shell
+echo "===== 'shell' plugin installed successfully. ====="
+
+
+echo "===== [3/4] Setting up OpenHands project... ====="
 git clone https://github.com/All-Hands-AI/OpenHands.git
 cd OpenHands
 cp .env.template .env
-# LLM_API_KEYをSecretsから安全に設定
 sed -i "s#^LLM_API_KEY=.*#LLM_API_KEY=\"${OPENAI_API_KEY}\"#" .env
-
-# ▼▼▼ この一行を追加して、使用するモデルを明示的に指定 ▼▼▼
 sed -i "s#^MODEL_NAME=.*#MODEL_NAME=\"gpt-4o\"#" .env
-
 echo "===== OpenHands project setup complete. ====="
 
 
-echo "===== [3/3] Pre-installing project dependencies... ====="
-# この処理で、研修当日のビルド時間を大幅に短縮します
-/home/vscode/.local/bin/poetry install --no-root
+echo "===== [4/4] Pre-installing project dependencies... ====="
+poetry install --no-root
 echo "===== Dependencies installed successfully. ====="
 
 
