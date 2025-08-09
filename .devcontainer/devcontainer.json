@@ -5,7 +5,6 @@
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/devcontainers/features/python:1": {},
         "ghcr.io/devcontainers/features/node:1": {},
-        // ▼▼▼ この行を追加して、nc等の基本ツールをインストール ▼▼▼
         "ghcr.io/devcontainers/features/common-utils:2": {}
     },
     "remoteEnv": {
