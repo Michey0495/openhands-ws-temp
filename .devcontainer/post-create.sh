@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e # エラーが発生したらスクリプトを停止する設定
+set -e
 
 echo "===== [1/4] Installing Poetry... ====="
 curl -sSL https://install.python-poetry.org | python3 -
@@ -7,7 +7,6 @@ export PATH="/home/vscode/.local/bin:$PATH"
 echo "===== Poetry installed successfully. ====="
 
 
-# ▼▼▼ このブロックを追加して、'shell'コマンドを有効化 ▼▼▼
 echo "===== [2/4] Activating 'shell' command for Poetry... ====="
 poetry self add poetry-plugin-shell
 echo "===== 'shell' plugin installed successfully. ====="
